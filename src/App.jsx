@@ -1,9 +1,9 @@
 import "./App.scss";
-import logo from './assets/crown.svg';
+import logo from "./assets/crown.svg";
 import CardList from "./components/cards/card-list/card-list.component";
 
 function App() {
-     const categoriesApp = [
+  const categoriesApp = [
     {
       id: 1,
       title: "Hats",
@@ -32,14 +32,14 @@ function App() {
   ];
   return (
     <>
-     <span className="header-logo">
-        <img src={logo}/>
-        </span>
-   <div className="container">
-     <CardList categories={categoriesApp}/>
-   </div>
+      <span className="header-logo">
+        <img src={logo} />
+      </span>
+      <div className="container">
+        <CardList categories={categoriesApp} />
+      </div>
     </>
-  )
+  );
 }
 
 export default App;
