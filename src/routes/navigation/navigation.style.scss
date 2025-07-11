@@ -1,0 +1,25 @@
+.header {
+    width: 80vw;
+    position: relative;
+}
+
+nav {
+    width:98vw;
+    height:3.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+
+    & img {
+        position:absolute;
+        left:1rem;
+        top: .5rem;
+        cursor: pointer;
+    }
+
+    & a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
