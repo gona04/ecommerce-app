@@ -1,0 +1,30 @@
+nav {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    & img {
+        cursor:pointer;
+        padding:0;
+        margin:0;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+    & ul {
+        width: 100vw;
+        display: flex;
+        gap: 2rem;
+        font-size: 1rem;
+        justify-content: end;
+
+        & a {
+            cursor: pointer;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        & a:last-child {
+            margin-right:2rem;
+        }
+    }
+
+}
