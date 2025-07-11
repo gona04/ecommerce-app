@@ -1,0 +1,23 @@
+.card-body { 
+    height: 50vh;
+    background-color: rgb(73, 138, 73);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30%;
+    flex: 1 1 auto;
+}
+
+.card-label {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.background-image {
+    background-image: center;
+}

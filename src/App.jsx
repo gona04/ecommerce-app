@@ -8,7 +8,12 @@ function Cart() {
 
 function App() {
   return (
-    <h1>Start</h1>
+    <Routes>
+      <Route path="/" element={<Navigation/>}>
+        <Route index element={<Home/>}/>
+        <Route path="cart" element={<Cart/>}/>
+      </Route>
+    </Routes>
   );
 }
 
