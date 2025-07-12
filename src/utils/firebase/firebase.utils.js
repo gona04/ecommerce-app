@@ -27,9 +27,29 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 /* Firestore related */
 export const db = getFirestore();
 
-export async function connectDB(authenticatedUser) {
+export async function createEditDb(authenticatedUser) {
   console.log(authenticatedUser);
   const userDocRef = doc(db, 'users', authenticatedUser.uid);
   const userSnapsot = await getDoc(userDocRef);
   console.log(userSnapsot.exists());
+/*
+if user does not exists.
+create /set the doc with the data of user snapshot 
+*/
+if(!userSnapsot.exists()) {
+  const {displayName, email } = authenticatedUser;
+  const createedAt = new Date();
+
+  try {
+    await setDoc(userDocRef, {
+      displayName,
+      email,
+      createedAt
+    })
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+//if user exists
+//return userDocRef
 }

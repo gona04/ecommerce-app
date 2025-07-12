@@ -1,10 +1,10 @@
-import {signInWithGooglePopup, connectDB} from '../../utils/firebase/firebase.utils.js';
+import {signInWithGooglePopup, createEditDb} from '../../utils/firebase/firebase.utils.js';
 import "./sign-in.style.scss";
 
 function SignIn() {
   const logGoogleUser = async () => {
     const {user} = await signInWithGooglePopup();
-    connectDB(user);
+   await createEditDb(user);
   }
   return (
     <div>
