@@ -1,0 +1,19 @@
+.card-body {
+    min-width:30%;
+    flex: 1 1 auto;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .card-label {
+        text-align: center;
+        padding: 1rem;
+        background-color: rgba(224, 2, 2, 0.824);
+        border: 1px solid rgb(54, 2, 2);
+        cursor: pointer;
+    }
+    & .card-label:hover {
+        background-color: rgba(241, 3, 3, 0.917);
+    }
+}

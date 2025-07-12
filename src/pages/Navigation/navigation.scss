@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: end;
+    width: 95vw;
+    align-items: center;
+    position: relative;
+    height: 10vh;
+
+    & a {
+        text-decoration: none;
+        color: darkred;
+        font-weight: bold;
+    }
+
+    & .logo {
+        position: absolute;
+        left: 1rem;
+        top: .5rem;
+    }
+}
