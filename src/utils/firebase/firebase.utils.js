@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {getFirestore, doc, setDoc, getDoc} from 'firebase/firestore';
 
 // refer to the firebase project that we have to refer to
 const firebaseConfig = {
@@ -21,4 +22,14 @@ provider.setCustomParameters({
 })
 
 export const auth = getAuth(app)
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+/* Firestore related */
+export const db = getFirestore();
+
+export async function connectDB(authenticatedUser) {
+  console.log(authenticatedUser);
+  const userDocRef = doc(db, 'users', authenticatedUser.uid);
+  const userSnapsot = await getDoc(userDocRef);
+  console.log(userSnapsot.exists());
+}
