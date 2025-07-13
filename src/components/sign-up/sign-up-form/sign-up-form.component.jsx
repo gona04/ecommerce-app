@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./sign-up-form.styles.scss";
+import { createAuthUserWithEmailAndPassword } from "../../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   displayName: "",
@@ -16,8 +17,13 @@ function SignUpForm() {
     setFormFields({...formFields , [name]: value });
     console.log(formFields);
   }
+  async function onSubmit(e) {
+    e.preventDefault();
+   const result = await createAuthUserWithEmailAndPassword(formFields);
+   console.log(result);
+  }
   return (
-    <form className="sign-up-form" onSubmit={() => {}}>
+    <form className="sign-up-form" onSubmit={onSubmit}>
       <h1> Sign Up</h1>
       <label> Name </label>
       <input
