@@ -1,20 +1,25 @@
+import SignUpForm from '../../components/sign-up/sign-up-form/sign-up-form.component.jsx';
 import {signInWithGooglePopup, createEditDb} from '../../utils/firebase/firebase.utils.js';
-import "./sign-in.style.scss";
+import './sign-in.style.scss';
 
 function SignIn() {
   const logGoogleUser = async () => {
     const {user} = await signInWithGooglePopup();
-   await createEditDb(user);
+    await createEditDb(user);
   }
   return (
-    <div>
-      <form className="signin-form">
+    <div id='sign-in'>
+     <div className='sigin-form'>
+       {/* <form className="signin-form"> */}
         <h1> Sign In</h1>
-        <input type="text" className="form-input" />
+        {/* <input type="text" className="form-input" />
         <input type="password" className="form-input" />
-        <button type="submit"> Sign In </button>
+        <button type="submit"> Sign In </button> */}
         <button type="button" onClick={logGoogleUser} className="google-button"> Sign In With Google </button>
-      </form>
+      {/* </form> */}
+     </div>
+  
+      <SignUpForm/>
     </div>
   );
 }
