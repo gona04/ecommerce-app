@@ -1,19 +1,59 @@
-import './sign-up-form.styles.scss';
+import { useState } from "react";
+import "./sign-up-form.styles.scss";
+
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 function SignUpForm() {
-    return (
-        <form className="sign-up-form" onSubmit={() => {}}>
-        <h1> Sign Up</h1>
-        <label for='displayName'> Name </label>
-        <input type='text' className='form-input' name='displayName'/>
-        <label for='email'>Email Id</label>
-        <input type="email" className="form-input" name='email'/>
-        <label for='password'>Password</label>
-        <input type="password" className="form-input" name='password'/>
-        <label for='confirmPassword'>Confirm Password</label>
-        <input type="password" className="form-input" name='confirmPassword'/>
-        <button type="submit"> Sign Up </button>
-      </form>
-    )
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+
+  function setFormData(e) {
+    const { name, value } = e.target;
+    setFormFields({...formFields , [name]: value });
+    console.log(formFields);
+  }
+  return (
+    <form className="sign-up-form" onSubmit={() => {}}>
+      <h1> Sign Up</h1>
+      <label> Name </label>
+      <input
+        type="text"
+        className="form-input"
+        name="displayName"
+        value={displayName}
+        onChange={setFormData}
+      />
+      <label>Email Id</label>
+      <input
+        type="email"
+        className="form-input"
+        name="email"
+        value={email}
+        onChange={setFormData}
+      />
+      <label>Password</label>
+      <input
+        type="password"
+        className="form-input"
+        name="password"
+        value={password}
+        onChange={setFormData}
+      />
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        className="form-input"
+        name="confirmPassword"
+        value={confirmPassword}
+        onChange={setFormData}
+      />
+      <button type="submit"> Sign Up </button>
+    </form>
+  );
 }
 
 export default SignUpForm;

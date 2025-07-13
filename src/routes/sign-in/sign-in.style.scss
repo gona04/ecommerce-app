@@ -1,16 +1,14 @@
 
 div#sign-in {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100vw;
     margin-left: 1.5rem;
 
 }
 
 .sigin-form {
+   width: 40%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
