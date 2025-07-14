@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./sign-up-form.styles.scss";
 import { createAuthUserWithEmailAndPassword, createEditDb } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../../form-input/form-input.component";
+import Button from "../../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -61,7 +62,7 @@ function SignUpForm() {
         value={confirmPassword}
         onChange={setFormData}
       />
-      <button type="submit"> Sign Up </button>
+      <Button type="submit" children={'Sign up'}/>
     </form>
   );
 }

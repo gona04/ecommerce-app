@@ -1,0 +1,58 @@
+$background-color: rgba(88, 183, 154, 0.758);
+$text-color:rgba(6, 101, 73, 0.758);
+$googleBackground: rgb(173, 216, 230);
+$googleBackgroundHover: rgb(26, 174, 223);
+$googleText: rgb(2, 63, 83);
+.button-container {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 35px 0 35px;
+    font-size: 15px;
+    background-color: $background-color;
+    color: $text-color;
+    // text-transform: uppercase;
+    // font-family: 'Open Sans Condensed';
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+  &:hover {
+    background-color: white;
+    color: $text-color;
+    border: 2px solid $text-color;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;
+  }
+
+&.google-sign-in {
+   
+        height: 3rem;
+        border: none;
+        background-color: $googleBackground;
+        color: $googleText;
+        cursor: pointer;
+    
+
+    &:hover {
+        background-color: $googleBackgroundHover;
+        border: none;
+    }
+}
+
+ &.inverted {
+    background-color: white;
+    color: $text-color;
+    border: 2px solid $text-color;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;
+
+    &:hover {
+      background-color: $text-color;
+      color: white;
+      border: 2px solid $text-color;
+    }
+  }
+}

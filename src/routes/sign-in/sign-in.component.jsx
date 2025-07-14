@@ -1,3 +1,4 @@
+import Button from '../../components/button/button.component.jsx';
 import SignUpForm from '../../components/sign-up/sign-up-form/sign-up-form.component.jsx';
 import {signInWithGooglePopup, createEditDb} from '../../utils/firebase/firebase.utils.js';
 import './sign-in.style.scss';
@@ -15,7 +16,7 @@ function SignIn() {
         {/* <input type="text" className="form-input" />
         <input type="password" className="form-input" />
         <button type="submit"> Sign In </button> */}
-        <button type="button" onClick={logGoogleUser} className="google-button"> Sign In With Google </button>
+        <Button buttonType='google' onClick={logGoogleUser} children=' Sign In With Google'/>
       {/* </form> */}
      </div>
   
