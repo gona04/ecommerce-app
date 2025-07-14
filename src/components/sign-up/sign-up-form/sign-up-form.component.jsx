@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./sign-up-form.styles.scss";
-import { createAuthUserWithEmailAndPassword } from "../../../utils/firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createEditDb } from "../../../utils/firebase/firebase.utils";
+import FormInput from "../../form-input/form-input.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -19,38 +20,41 @@ function SignUpForm() {
   }
   async function onSubmit(e) {
     e.preventDefault();
-   const result = await createAuthUserWithEmailAndPassword(formFields);
-   console.log(result);
+   const {user} = await createAuthUserWithEmailAndPassword(formFields);
+   user.displayName = displayName;
+   console.log(user);
+   createEditDb(user);
   }
   return (
-    <form className="sign-up-form" onSubmit={onSubmit}>
-      <h1> Sign Up</h1>
-      <label> Name </label>
-      <input
+    <form className="sign-up-container" onSubmit={onSubmit}>
+      <h2> Don't have an account ?</h2>
+      <span>Sign up with your email and password</span>
+      <FormInput 
+      label={'DisplayName'}
         type="text"
         className="form-input"
         name="displayName"
         value={displayName}
         onChange={setFormData}
       />
-      <label>Email Id</label>
-      <input
+      <FormInput
+      label={'Email'}
         type="email"
         className="form-input"
         name="email"
         value={email}
         onChange={setFormData}
       />
-      <label>Password</label>
-      <input
+      <FormInput
+      label='Password'
         type="password"
         className="form-input"
         name="password"
         value={password}
         onChange={setFormData}
       />
-      <label>Confirm Password</label>
-      <input
+      <FormInput
+      label='Confirm Password'
         type="password"
         className="form-input"
         name="confirmPassword"
