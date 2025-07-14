@@ -6,13 +6,12 @@ import { useContext } from "react";
 import { signOutCustom } from "../../utils/firebase/firebase.utils";
 
 function Navigation() {
-    const {currentUser, setCurrentUser } = useContext(UserContext);
+    const {currentUser } = useContext(UserContext);
 
      async function signOut() {
         console.log('in Sign out')
         console.log(currentUser);
         const result = await signOutCustom()
-        if(!result) setCurrentUser(null);
         console.log('changed',result);
     }
     return (
