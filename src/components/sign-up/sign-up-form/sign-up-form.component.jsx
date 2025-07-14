@@ -25,6 +25,7 @@ function SignUpForm() {
    user.displayName = displayName;
    console.log(user);
    createEditDb(user);
+   setFormFields(defaultFormFields);
   }
   return (
     <form className="sign-up-container" onSubmit={onSubmit}>

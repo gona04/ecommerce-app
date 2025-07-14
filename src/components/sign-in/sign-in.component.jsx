@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   createEditDb,
+  emailPasswordSignIn,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
 import Button from "../button/button.component";
@@ -12,6 +13,9 @@ const defaultFormFields = {
   password: "",
 };
 
+const errorMessage = new Map()
+.set('auth/invalid-credential', 'Please enter correct email or password')
+
 function SignIn() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -22,8 +26,15 @@ function SignIn() {
     await createEditDb(user);
   };
 
-  const signInWithEmail = () => {
-    console.log("sigin in with email to be set");
+  const signInWithEmail = async (e) => {
+    e.preventDefault();
+   try {
+    const result = await emailPasswordSignIn(formFields)
+    console.log(result);
+   } catch(e) {
+    console.log(e);
+    alert(errorMessage.get(e.code))
+   }
   };
 
   function handleOnChange(e) {
