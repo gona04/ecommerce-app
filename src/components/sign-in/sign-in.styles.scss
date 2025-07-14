@@ -17,4 +17,8 @@
     & .form-input:focus-visible {
         outline: none;
     }
+    .sign-in-button-container{
+        display: flex;
+        gap: 1rem;
+    }
 }
