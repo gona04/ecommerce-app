@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import cartIcon from "../../../assets/shopping-bag.svg";
 import { ProductContext } from "../../../context/productContext/product.context";
 import "./cart-icon.styles.scss";
@@ -25,32 +25,12 @@ function CartIcon({ isOpen = true }) {
   console.log(isOpen);
   return (
     <div className="cart-wrapper">
-      <div className="cart-icon-wrapper">
-        <img src={cartIcon} />
-        <span className="item-count">{totalItems}</span>
-      </div>
-      {isOpen && (
-        <div className="drop-down">
-          <div className="dorp-down-data-wrapper">
-            {uniqueProducts.map((product) => (
-              <div key={product.id} className="drop-down-data">
-                <img src={product.imageUrl} />
-                <div className="product-details">
-                  <span className="product-name">{product.name}</span>
-                  <span>
-                    {" "}
-                    {product.count} x ${product.price}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="button-wrapper">
-            <button> Go To Cart </button>
-          </div>
-        </div>
-      )}
+    <div className="cart-icon-wrapper">
+      <img src={cartIcon} />
+      <span className="item-count">{totalItems}</span>
     </div>
+    {isOpen && <CartDropdown uniqueProducts={uniqueProducts} />}
+  </div>
   );
 }
 
