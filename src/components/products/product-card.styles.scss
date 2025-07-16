@@ -1,0 +1,44 @@
+$buttonBackground: rgb(173, 216, 230);
+$buttonColor: rgb(11, 58, 73);
+.products-body {
+    flex-direction: column;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    flex: 1 1 1 1 auto;
+    justify-content: center;
+    min-width: 18%;
+}
+
+.image-style {
+        display: flex;
+        justify-content: center;
+        width:100%;
+        height: 100%;
+        position: relative;
+        background-position:center ;
+        background-size:cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        .button-add-to-cart {
+            position: absolute;
+            bottom: 1rem;
+            padding: 1rem;
+            width:95%;
+            border:none;
+            background-color:$buttonBackground ;
+            color: $buttonColor;
+            display: none;
+            cursor: pointer;
+        }
+    }
+    .image-style:hover {
+            .button-add-to-cart {
+                display: block;
+            }
+        } 
+    .product-label {
+        display: flex;
+        width:100%;
+        justify-content: space-between;
+    }
