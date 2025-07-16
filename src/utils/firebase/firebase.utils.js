@@ -4,7 +4,9 @@ import {
   getAuth,
   signInWithPopup,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -38,6 +40,9 @@ export async function emailPasswordSignup(email, password) {return await createU
 
 export async function emailPasswordSignin(email, password) {return await signInWithEmailAndPassword(auth, email, password)}
 
+export async function userAuthUpdates(callback) { return await onAuthStateChanged(auth, callback) }
+
+export async function onSignOut() {return await signOut(auth)}
 //FOR FIRESTORE
 
 export const db = getFirestore();

@@ -1,9 +1,10 @@
-import { useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.scss";
 import { createUser, emailPasswordSignin, signInGoogle } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../context/user.context";
 
 const defaultFormFields = {
   email: "",
@@ -15,7 +16,12 @@ const errorMessage = new Map()
 
 function SignIn() {
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const {currentUser} = useContext(UserContext);
   const { email, password } = formFields;
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(currentUser) navigate('/shop')
+  }, [currentUser])
 
   const logGoogleUser = async (e) => {
     e.preventDefault();
