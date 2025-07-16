@@ -1,72 +1,62 @@
-import { initializeApp } from "firebase/app";
+import {initializeApp} from 'firebase/app';
 import {
+  GoogleAuthProvider,
   getAuth,
   signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
+} from 'firebase/auth';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc
+} from 'firebase/firestore';
 
-// refer to the firebase project that we have to refer to
-const firebaseConfig = {
+const config =  {
   apiKey: "AIzaSyCtlGrRgg9fdCjsmC6FDyzLxjSHcZAtq-Y",
   authDomain: "e-commerce-db-cdd31.firebaseapp.com",
   projectId: "e-commerce-db-cdd31",
   storageBucket: "e-commerce-db-cdd31.firebasestorage.app",
   messagingSenderId: "1059499071464",
-  appId: "1:1059499071464:web:e3c600b598980bd3a2765d",
+  appId: "1:1059499071464:web:e3c600b598980bd3a2765d"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(config);
 
+//FOR AUTHENTICATION
 const provider = new GoogleAuthProvider();
-
 provider.setCustomParameters({
-  prompt: "select_account",
-});
+  prompt: 'select_account'
+})
 
 export const auth = getAuth(app);
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-/* Firestore related */
+export async function signInGoogle() {return await signInWithPopup(auth, provider)}
+
+export async function emailPasswordSignup(email, password) {return await createUserWithEmailAndPassword(auth, email, password)}
+
+export async function emailPasswordSignin(email, password) {return await signInWithEmailAndPassword(auth, email, password)}
+
+//FOR FIRESTORE
+
 export const db = getFirestore();
 
-export async function createEditDb(authenticatedUser) {
-    if(!authenticatedUser) return;
-    
-  const userDocRef = doc(db, "users", authenticatedUser.uid);
-  const userSnapsot = await getDoc(userDocRef);
-  console.log(userSnapsot.exists());
-  /*
-if user does not exists.
-create /set the doc with the data of user snapshot 
-*/
-  if (!userSnapsot.exists()) {
-    const { displayName, email } = authenticatedUser;
-    const createedAt = new Date();
+export async function createUser(user) {
+  const userRef = doc(db, 'users', user.uid);
+  const userScreenShot = await getDoc(userRef);
 
+  if(!userScreenShot.exists()) {
+    const {displayName, email} = user;
+    const createdAt = new Date();
     try {
-      await setDoc(userDocRef, {
+     await setDoc(userRef,{
         displayName,
         email,
-        createedAt,
-      });
-    } catch (error) {
-      console.log(error.message);
+        createdAt
+      })
+    } catch(e) {
+      console.log(e.message);
     }
   }
-  //if user exists
-  //return userDocRef
-}
-
-export const createAuthUserWithEmailAndPassword = async ({email, password}) => {
-  if (!email || !password) return;
-  return await createUserWithEmailAndPassword(auth, email, password);
-};
-
-export const emailPasswordSignIn = async ({email, password}) => {
-  if(!email || !password) return;
-  return await signInWithEmailAndPassword(auth, email, password);
 }

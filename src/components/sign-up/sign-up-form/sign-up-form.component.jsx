@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./sign-up-form.styles.scss";
-import { createAuthUserWithEmailAndPassword, createEditDb } from "../../../utils/firebase/firebase.utils";
+import { createUser, emailPasswordSignup } from "../../../utils/firebase/firebase.utils";
 import FormInput from "../../form-input/form-input.component";
 import Button from "../../button/button.component";
 
@@ -21,10 +21,10 @@ function SignUpForm() {
   }
   async function onSubmit(e) {
     e.preventDefault();
-   const {user} = await createAuthUserWithEmailAndPassword(formFields);
+   const {user} = await emailPasswordSignup(formFields.email, formFields.password);
    user.displayName = displayName;
    console.log(user);
-   createEditDb(user);
+   createUser(user);
    setFormFields(defaultFormFields);
   }
   return (

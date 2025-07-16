@@ -1,12 +1,9 @@
 import { useState } from "react";
-import {
-  createEditDb,
-  emailPasswordSignIn,
-  signInWithGooglePopup,
-} from "../../utils/firebase/firebase.utils";
+
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.scss";
+import { createUser, emailPasswordSignin, signInGoogle } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   email: "",
@@ -22,14 +19,14 @@ function SignIn() {
 
   const logGoogleUser = async (e) => {
     e.preventDefault();
-    const { user } = await signInWithGooglePopup();
-    await createEditDb(user);
+    const { user } = await signInGoogle();
+    await createUser(user);
   };
 
   const signInWithEmail = async (e) => {
     e.preventDefault();
    try {
-    const result = await emailPasswordSignIn(formFields)
+    const result = await emailPasswordSignin(email, password)
     console.log(result);
    } catch(e) {
     console.log(e);
