@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './cart-dropdown.styles.scss';
+import { Link } from 'react-router-dom';
 
 const CartDropdown = ({uniqueProducts}) => (
   <div className="drop-down">
@@ -18,7 +19,7 @@ const CartDropdown = ({uniqueProducts}) => (
           ))}
         </div>
         <div className="button-wrapper">
-          <button> Go To Cart </button>
+          <Link to={'/checkout'}> Go To Cart </Link>
         </div>
       </div>
 );
