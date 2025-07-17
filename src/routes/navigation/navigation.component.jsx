@@ -4,6 +4,7 @@ import "./navigation.styles.scss";
 import { UserContext } from "../../context/user.context";
 import { useContext } from "react";
 import { onSignOut } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../components/cart/cart-icon/cart-icon.component";
 
 const Navigation = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -21,7 +22,7 @@ const Navigation = () => {
     <div>
       <nav>
         <Link to={"/"}>
-          <img src={logo} />
+          <img id='logo-img' src={logo} />
         </Link>
         <ul>
           <Link to={"/contact"}>Contact</Link>
@@ -29,7 +30,7 @@ const Navigation = () => {
             <>
               <Link onClick={signOut}>Sign Out</Link>
               <Link to={"/shop"}>Shop</Link>
-              <Link to={"/cart"}>Cart</Link>
+              <Link> <CartIcon/> </Link>
             </>
           ) : (
             <>
