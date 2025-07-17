@@ -2,11 +2,11 @@ import { useContext, useEffect } from "react";
 import cart_icon from "../../../assets/shopping-bag.svg";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import "./cart-icon.styles.scss";
-import { ProductContext } from "../../../context/product.context";
+import { CartContext } from "../../../context/cart.context";
 
 function CartIcon() {
-  const { selectedProducts, selectedProductsCount, setSelectedProductCount } =
-    useContext(ProductContext);
+  const { selectedProducts, setSelectedProductCount, isOpen, setIsOpen } =
+    useContext(CartContext);
 
   function addProductsWithCounts() {
     let newObj = {};
@@ -26,12 +26,12 @@ function CartIcon() {
   }, [selectedProducts]);
 
   return (
-    <div className="cart-icon-wrapper">
+    <div className="cart-icon-wrapper" onClick={() => setIsOpen(!isOpen)}>
       <div className="cart-icon-button">
         <img src={cart_icon} alt="Shopping cart" />
         <span className="cart-count-badge">{selectedProducts.length}</span>
       </div>
-      <CartDropdown/>
+      {isOpen && <CartDropdown />}
     </div>
   );
 }

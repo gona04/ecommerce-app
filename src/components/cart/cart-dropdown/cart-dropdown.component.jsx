@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import Button from '../../button/button.component';
 import './cart-dropdown.styles.scss';
-import { ProductContext } from '../../../context/product.context';
+import { CartContext } from '../../../context/cart.context';
 
 function CartDropdown() {
-    const {selectedProductsCount} = useContext(ProductContext)
+    const {selectedProductsCount} = useContext(CartContext)
     return (
         <aside className='cart-dropdown'>
         <main className='cart-item-container'>
