@@ -1,0 +1,39 @@
+.product-list {
+    padding: 1rem;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    .product-list-container {
+        .image-button-container {
+            width: 100%;
+            height: 90%;
+            position: relative;
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            Button {
+                display: none;
+                position:absolute;
+                bottom:.5rem;
+                margin:1rem;
+            }
+
+            &:hover {
+                Button {
+                    display: flex;
+                }
+            }
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+    }
+}
