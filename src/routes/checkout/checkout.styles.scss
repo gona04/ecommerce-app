@@ -9,6 +9,10 @@ td {
     padding: 0.5rem 1rem;
     text-align: center;
     border-bottom: 1px solid #ddd;
+
+    .less-more{
+        cursor: pointer;
+    }
 }
 
 .table-img {

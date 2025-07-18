@@ -15,7 +15,7 @@ function CartProvider({children}) {
     const [selectedProductsCount, setSelectedProductCount] = useState([]);
     
     return (
-        <CartContext.Provider value={{isOpen, setIsOpen, selectedProducts, setSelectedProducts, selectedProductsCount, setSelectedProductCount}}>
+    <CartContext.Provider value={{isOpen, setIsOpen, selectedProducts, setSelectedProducts, selectedProductsCount, setSelectedProductCount}}>
         {children}
     </CartContext.Provider>
     )

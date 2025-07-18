@@ -1,12 +1,11 @@
 .cart-icon-wrapper {
     position: relative;
-
     .cart-icon-button {
         position: relative;
         display: flex;
         align-items: center;
-        justify-content: start;
-        width: 2rem; // or your preferred size
+        justify-content: center;
+        width: 2rem; 
         height: 2rem;
 
         img {
@@ -16,7 +15,6 @@
 
         .cart-count-badge {
             position: absolute;
-            left: .8rem;
             top: .6rem;
             z-index: 1;
         }

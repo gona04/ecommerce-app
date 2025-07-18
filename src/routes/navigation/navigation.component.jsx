@@ -31,9 +31,6 @@ const Navigation = () => {
               <>
                 <Link onClick={signOut}>Sign Out</Link>
                 <Link to={"/shop"}>Shop</Link>
-                <span className="cart-icon-holder">
-                  <CartIcon />
-                </span>
               </>
             ) : (
               <>
@@ -41,6 +38,11 @@ const Navigation = () => {
               </>
             )}
           </ul>
+          {currentUser && (
+            <span className="cart-icon-holder">
+              <CartIcon />
+            </span>
+          )}
         </nav>
       </div>
       <Outlet />

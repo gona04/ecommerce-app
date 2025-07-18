@@ -2,39 +2,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4rem;
-nav {
-    height: 3rem;
-    display: flex;
-    align-items: center;
+    // height: 4rem;
 
-    & img #logo-img {
-        cursor: pointer;
-        padding: 0;
-        margin: 0;
-        position: absolute;
-        top: .2rem;
-        left: 1rem;
-    }
-
-    & ul {
-        width: 90vw;
-        align-items: center;
+    nav {
+        height: 3rem;
         display: flex;
-        gap: 2rem;
-        font-size: 1rem;
-        justify-content: end;
+        align-items: center;
 
-        & a {
-            cursor: pointer;
-            list-style-type: none;
-            text-decoration: none;
+        a>#logo-img {
+            display: flex;
+            justify-self: center;
+            align-items: end;
+            width: 3.5rem;
+            margin-left: -4rem;
         }
 
-        & a:last-child {
-            margin-right: 2rem;
+        & img #logo-img {
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: .2rem;
+            left: 1rem;
+        }
+
+        & ul {
+            width: 83vw;
+            display: flex;
+            gap: 2rem;
+            height: 2.5rem;
+            font-size: 1.1rem;
+            align-items: flex-end;
+            justify-content: end;
+
+            & a {
+                cursor: pointer;
+                list-style-type: none;
+                text-decoration: none;
+            }
+        }
+
+        span.cart-icon-holder {
+            position: absolute;
+            display: flex;
+            height: 2rem;
+            align-items: start;
+            right: 1.8rem;
         }
     }
-
-}
 }
