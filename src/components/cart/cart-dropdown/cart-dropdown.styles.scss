@@ -1,5 +1,5 @@
 .cart-dropdown {
-    width: 45vw;
+    width: 25vw;
     height: 60vh;
     position: absolute;
 
@@ -23,21 +23,24 @@
     }
 
     .cart-item {
-        height: 40%;
-        width: 95%;
+        height: 33.3%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
-        padding: .5rem .5rem;
+        justify-content: start;
+        padding: 1rem .2rem .2rem 1rem;
 
         .cart-image {
-            height: 100%;
-            width: 25%;
+            max-height: 100%;
+            width:30%;
         }
 
         .item-details {
             display: flex;
+            width:100%;
+            justify-content: center;
             align-items: center;
-            gap: .5rem;
+            flex-direction: column;
+            // gap: 0.5rem;
         }
     }
 
