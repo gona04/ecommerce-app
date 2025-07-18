@@ -45,7 +45,9 @@ const Navigation = () => {
           )}
         </nav>
       </div>
-      <Outlet />
+      <div className='body-styling'>
+      <Outlet/>
+      </div>
     </div>
   );
 };

@@ -16,7 +16,10 @@ function CartDropdown() {
   return (
     <aside className="cart-dropdown">
       <main className="cart-item-container">
-        {selectedProductsCount.map(({ id, name, imageUrl, count, price }) => (
+        {
+          selectedProductsCount.length !== 0 ? 
+          (
+            selectedProductsCount.map(({ id, name, imageUrl, count, price }) => (
           <div key={id} className="cart-item">
             <img src={imageUrl} alt={name} className="cart-image" />
             <div className="item-details">
@@ -26,7 +29,13 @@ function CartDropdown() {
               </span>
             </div>
           </div>
-        ))}
+        ))
+          ) : (
+            <div className="empty-cart-style">
+              Your Cart Is Empty
+            </div>
+          )
+        }
       </main>
       <div className="button-box">
         <Button type="button" onClick={navigateToCheckout}>

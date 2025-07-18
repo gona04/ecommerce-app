@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // height: 4rem;
 
     nav {
         height: 3rem;
@@ -13,8 +12,8 @@
             display: flex;
             justify-self: center;
             align-items: end;
-            width: 3.5rem;
-            margin-left: -4rem;
+            width: 3rem;
+            margin-left: -5rem;
         }
 
         & img #logo-img {
@@ -22,8 +21,8 @@
             padding: 0;
             margin: 0;
             position: absolute;
-            top: .2rem;
-            left: 1rem;
+            // top: .2rem;
+            // left: 1rem;
         }
 
         & ul {
@@ -47,7 +46,11 @@
             display: flex;
             height: 2rem;
             align-items: start;
-            right: 1.8rem;
+            right: 2rem;
         }
     }
+}
+
+.body-styling {
+    padding:1rem 0 0 1.5rem;
 }

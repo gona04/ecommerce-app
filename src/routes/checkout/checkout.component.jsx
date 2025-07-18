@@ -14,6 +14,19 @@ function Checkout() {
   let sp = [...selectedProductsCount];
   let p = [...selectedProducts];
 
+  function addSelectedProduct(index, id) {
+    sp[index].count += 1;
+    setSelectedProductCount([...sp]);
+    addsp(id)
+  }
+
+  function addsp(id) {
+    let pObj = p.find(i => i.id == id);
+    p.push(pObj);
+    console.log(p);
+    setSelectedProducts([...p])
+  }
+
   function reduceCount(index, id) {
     sp[index].count -= 1;
     setSelectedProductCount([...sp]);
@@ -68,7 +81,7 @@ function Checkout() {
                     {"< "}
                   </span>
                   <span>{count} </span>
-                  <span className="less-mor">{" >"}</span>
+                  <span  onClick={() => addSelectedProduct(i, id)} className="less-more">{" >"}</span>
                 </td>
                 <td> {price * count} </td>
                 <td>
