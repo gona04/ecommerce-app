@@ -20,25 +20,29 @@ const Navigation = () => {
   }
   return (
     <div>
-      <nav>
-        <Link to={"/"}>
-          <img id='logo-img' src={logo} />
-        </Link>
-        <ul>
-          <Link to={"/contact"}>Contact</Link>
-          {currentUser ? (
-            <>
-              <Link onClick={signOut}>Sign Out</Link>
-              <Link to={"/shop"}>Shop</Link>
-              <Link> <CartIcon/> </Link>
-            </>
-          ) : (
-            <>
-              <Link to={"/authentication"}>Sign in</Link>
-            </>
-          )}
-        </ul>
-      </nav>
+      <div className="nav-container">
+        <nav>
+          <Link to={"/"}>
+            <img id="logo-img" src={logo} />
+          </Link>
+          <ul>
+            <Link to={"/contact"}>Contact</Link>
+            {currentUser ? (
+              <>
+                <Link onClick={signOut}>Sign Out</Link>
+                <Link to={"/shop"}>Shop</Link>
+                <span className="cart-icon-holder">
+                  <CartIcon />
+                </span>
+              </>
+            ) : (
+              <>
+                <Link to={"/authentication"}>Sign in</Link>
+              </>
+            )}
+          </ul>
+        </nav>
+      </div>
       <Outlet />
     </div>
   );

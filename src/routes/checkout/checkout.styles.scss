@@ -1,0 +1,17 @@
+.table-container table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 4rem;
+}
+
+th,
+td {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-img {
+    width: 50%;
+    height: auto;
+}
