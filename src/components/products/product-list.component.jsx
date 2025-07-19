@@ -1,22 +1,23 @@
-import { useContext } from 'react';
-import { ProductContext } from '../../context/product.context';
-import Button from '../button/button.component'
+// import { useContext } from 'react';
+// import Button from '../button/button.component'
+// import { CartContext } from '../../context/cart.context';
 import './product-list.styles.scss';
-import { CartContext } from '../../context/cart.context';
 
 function ProductList() {
-    const {products } = useContext(ProductContext);
-    const {addToCart} = useContext(CartContext)
+    // const {products } = useContext(ProductContext);
+    // const {addToCart} = useContext(CartContext)
 
-    function addProductToCart(id, name, price, imageUrl) {
-        const product = {id, name, price, imageUrl};
-        addToCart(product);
-    }
+    // function addProductToCart(id, name, price, imageUrl) {
+    //     const product = {id, name, price, imageUrl};
+    //     addToCart(product);
+    // }
 
 return (
+    <>
+    <h2>Hats</h2>
     <div className='product-list'>
         {
-            products.map(({id, name, price, imageUrl}) => (
+            {/* products.map(({id, name, price, imageUrl}) => (
                 <div className='product-list-container' key={id}>
                     <div className='image-button-container'>
                         <img src={imageUrl}/>
@@ -27,9 +28,10 @@ return (
                     <span> {price} </span>
                     </div>
                 </div>
-            )) 
+            ))  */}
         }
     </div>
+    </>
 )
 }
 

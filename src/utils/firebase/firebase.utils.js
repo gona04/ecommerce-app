@@ -12,7 +12,10 @@ import {
   getFirestore,
   doc,
   getDoc,
-  setDoc
+  setDoc,
+  collection,
+  WriteBatch,
+  writeBatch
 } from 'firebase/firestore';
 
 const config =  {
@@ -64,4 +67,18 @@ export async function createUser(user) {
       console.log(e.message);
     }
   }
+}
+
+//Adding complete collection
+export const addCollection = async (collectionKay, ObjToAdd) => {
+  const collectionRef = collection(db, collectionKay);
+  const batch = writeBatch(db);
+
+  ObjToAdd.forEach((obj) => {
+    const docRef = doc(collectionRef, obj.title.toLowerCase());
+    batch.set(docRef, obj);
+  });
+
+  batch.commit();
+  console.log('done');
 }
