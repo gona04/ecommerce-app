@@ -6,12 +6,13 @@ import { CartContext } from '../../context/cart.context';
 
 function ProductList() {
     const {products } = useContext(ProductContext);
-    const {setSelectedProducts, selectedProducts} = useContext(CartContext)
+    const {addToCart} = useContext(CartContext)
 
     function addProductToCart(id, name, price, imageUrl) {
         const product = {id, name, price, imageUrl};
-        setSelectedProducts([...selectedProducts, product])
+        addToCart(product);
     }
+
 return (
     <div className='product-list'>
         {

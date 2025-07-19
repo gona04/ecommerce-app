@@ -5,7 +5,7 @@ import { CartContext } from "../../../context/cart.context";
 import { useNavigate } from "react-router-dom";
 
 function CartDropdown() {
-  const { selectedProductsCount, setIsOpen } = useContext(CartContext);
+  const { cartItems, setIsOpen } = useContext(CartContext);
   const nav = useNavigate();
 
   function navigateToCheckout() {
@@ -17,9 +17,9 @@ function CartDropdown() {
     <aside className="cart-dropdown">
       <main className="cart-item-container">
         {
-          selectedProductsCount.length !== 0 ? 
+          cartItems.length !== 0 ? 
           (
-            selectedProductsCount.map(({ id, name, imageUrl, count, price }) => (
+            cartItems.map(({ id, name, imageUrl, count, price }) => (
           <div key={id} className="cart-item">
             <img src={imageUrl} alt={name} className="cart-image" />
             <div className="item-details">
