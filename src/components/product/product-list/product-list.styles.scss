@@ -1,0 +1,11 @@
+.product-list {
+    // padding: 1rem;
+    width: 95vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    .product-list-container {
+      
+    }
+}
