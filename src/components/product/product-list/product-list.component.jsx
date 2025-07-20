@@ -14,7 +14,7 @@ function ProductList() {
     <>
       {Object.keys(categoryMap).map((category) => (
         <div key={category}>
-          <h2>{category}</h2>
+          <h2>{category.toUpperCase()}</h2>
           <div className="product-list">
             {Array.isArray(categoryMap[category]) && categoryMap[category].length > 0 ? (
               categoryMap[category].slice(0, 4).map((product) => (
