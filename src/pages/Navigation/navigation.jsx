@@ -9,7 +9,7 @@ import CartIcon from "../../components/cart/cart-icon/cart-icon.component";
 function Navigation() {
   const { currentUser } = useContext(UserContext);
   const [popUpOpen, setPopUpOpen] = useState(false);
-  const navigate = useNavigate();
+
 
   async function signOut() {
     console.log("in Sign out");
