@@ -12,7 +12,6 @@ const defaultFormFields = {
 function SignIn() {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
-    const navigate = Navigate;
 
     function handleChange(e) {
         const {name, value} = e.target;
