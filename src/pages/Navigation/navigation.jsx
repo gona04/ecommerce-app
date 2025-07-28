@@ -1,14 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/crown.svg";
 import "./navigation.scss";
 import { UserContext } from "../../context/userContext/user.context";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { signOutCustom } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart/cart-icon/cart-icon.component";
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
   const [popUpOpen, setPopUpOpen] = useState(false);
+  const navigate = useNavigate();
 
   async function signOut() {
     console.log("in Sign out");
@@ -16,6 +17,7 @@ function Navigation() {
     const result = await signOutCustom();
     console.log("changed", result);
   }
+
   return (
     <main>
       <nav>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './sign-in.styles.scss';
 import FormInput from '../../form-input/form-input.component';
 import { emailAndPasswordSignin, logInGoogle, saveUserDetails } from '../../../utils/firebase/firebase.utils';
-import { UserContext } from '../../../context/userContext/user.context';
+import { Navigate } from 'react-router-dom';
 
 const defaultFormFields = {
     email: '',
@@ -12,6 +12,7 @@ const defaultFormFields = {
 function SignIn() {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
+    const navigate = Navigate;
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -33,6 +34,7 @@ function SignIn() {
        //save user if not saved
         const userRef = await saveUserDetails(user)
         console.log(userRef);
+        saveUserDetails(userRef);
     }
     return (
         <div className='Sign-in-form'>
