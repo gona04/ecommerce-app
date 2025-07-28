@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './sign-in.styles.scss';
 import FormInput from '../../form-input/form-input.component';
 import { emailAndPasswordSignin, logInGoogle, saveUserDetails } from '../../../utils/firebase/firebase.utils';
-import { Navigate } from 'react-router-dom';
+
 
 const defaultFormFields = {
     email: '',

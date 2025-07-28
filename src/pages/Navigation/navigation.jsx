@@ -1,8 +1,8 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/crown.svg";
 import "./navigation.scss";
 import { UserContext } from "../../context/userContext/user.context";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { signOutCustom } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart/cart-icon/cart-icon.component";
 
