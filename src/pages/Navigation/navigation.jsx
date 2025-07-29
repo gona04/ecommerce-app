@@ -12,10 +12,7 @@ function Navigation() {
 
 
   async function signOut() {
-    console.log("in Sign out");
-    console.log(currentUser);
-    const result = await signOutCustom();
-    console.log("changed", result);
+    await signOutCustom();
   }
 
   return (
@@ -29,13 +26,13 @@ function Navigation() {
           <>
             <Link onClick={signOut}> Sign Out </Link>
             <Link to={"/shop"}>Shop</Link>
-            <Link
+            <button className="cart-button"
               onClick={() => {
                 setPopUpOpen((v) => !v);
               }}
             >
               <CartIcon isOpen={popUpOpen} />
-            </Link>
+            </button>
           </>
         ) : (
           <Link to={"/authentication"}>Sign In</Link>

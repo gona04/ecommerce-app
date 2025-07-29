@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListner((user) => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         setCurrentUser(user);
         navigate("/shop")
       } else {

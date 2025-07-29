@@ -1,27 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import cartIcon from "../../../assets/shopping-bag.svg";
-import { ProductContext } from "../../../context/productContext/product.context";
 import "./cart-icon.styles.scss";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { CartContext } from "../../../context/cartContext/cart.context";
 
 function CartIcon({ isOpen = true }) {
-  const { selectedProducts } = useContext(ProductContext);
-  let totalItems = 0;
+  const { cartItems } = useContext(CartContext);
+  const [totalItems, setTotalItems] = useState(0);
 
-  const productCounts = {};
-  selectedProducts.forEach((product) => {
-    if (productCounts[product.id]) {
-      productCounts[product.id].count += 1;
-      totalItems = totalItems + 1;
-    } else {
-      productCounts[product.id] = { ...product, count: 1 };
-      totalItems = totalItems + 1;
-    }
-  });
-  console.log(totalItems);
-
-  // Get an array of unique products with counts
-  const uniqueProducts = Object.values(productCounts);
+  useEffect(() => {
+    setTotalItems(cartItems.reduce((acc,next) => acc = acc + next.count, 0));
+  }, [cartItems])
+ 
   console.log(isOpen);
   return (
     <div className="cart-wrapper">
@@ -29,7 +19,7 @@ function CartIcon({ isOpen = true }) {
       <img src={cartIcon} />
       <span className="item-count">{totalItems}</span>
     </div>
-    {isOpen && <CartDropdown uniqueProducts={uniqueProducts} />}
+    {isOpen && <CartDropdown uniqueProducts={cartItems} />}
   </div>
   );
 }
