@@ -8,7 +8,7 @@ import {
   signOut,
   onAuthStateChanged
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc, collection, query, getDocs } from 'firebase/firestore';
 const firebaseConfig = {
   apiKey: "AIzaSyCtlGrRgg9fdCjsmC6FDyzLxjSHcZAtq-Y",
   authDomain: "e-commerce-db-cdd31.firebaseapp.com",
@@ -66,3 +66,21 @@ export async function signOutCustom() {
 }
 
 export const onAuthStateChangedListner = (callback) => onAuthStateChanged(auth, callback)
+
+/* 
+                                    GET DATA FROM COLLECTION  
+*/
+
+export async function getProductDetails(collectionKey) {
+    const collectionRef = collection(db, collectionKey);
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+    const categoriesData = querySnapshot.docs.reduce((acc, dataSnapshot ) => {
+        const {title, items} = dataSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {})
+    
+    return await categoriesData;
+}
