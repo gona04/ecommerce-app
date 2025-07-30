@@ -27,14 +27,14 @@ export function CartProvider({ children }) {
   }
 
   function deleteCartItem(id) {
-    let itemIndex = items.findIndex((i) => i == id);
+    let itemIndex = items.findIndex((i) => i.id == id);
     items[itemIndex].count -=1;
     setCartItems(items);
   }
 
   function deleteAllItems(id) {
-    let items = items.filter((i) => i.id !== id);
-    setCartItems(items);
+    let items2 = items.filter((i) => i.id !== id);
+    setCartItems(items2);
   }
 
   return (

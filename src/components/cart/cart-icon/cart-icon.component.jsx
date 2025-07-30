@@ -12,7 +12,6 @@ function CartIcon({ isOpen = true }) {
     setTotalItems(cartItems.reduce((acc,next) => acc = acc + next.count, 0));
   }, [cartItems])
  
-  console.log(isOpen);
   return (
     <div className="cart-wrapper">
     <div className="cart-icon-wrapper">
