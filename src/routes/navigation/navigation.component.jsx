@@ -30,7 +30,7 @@ const Navigation = () => {
             {currentUser ? (
               <>
                 <Link onClick={signOut}>Sign Out</Link>
-                <Link to={"/shop"}>Shop</Link>
+                <Link to="/shop">Shop</Link>
               </>
             ) : (
               <>
