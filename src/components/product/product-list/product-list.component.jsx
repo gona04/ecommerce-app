@@ -20,19 +20,3 @@ function ProductList() {
 }
 
 export default ProductList;
-
-// to be added in product details 
-/*  <div key={category}>
-          <h2>{category.toUpperCase()}</h2>
-          <div className="product-list">
-            {Array.isArray(categoryMap[category]) && categoryMap[category].length > 0 ? (
-              categoryMap[category].map((product) => (
-                <div className="product-list-container" key={product.id}>
-                  <ProductItem product={product} />
-                </div>
-              ))
-            ) : (
-              <div>No products found.</div>
-            )}
-          </div>
-        </div> */
