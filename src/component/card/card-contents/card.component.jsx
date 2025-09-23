@@ -2,7 +2,7 @@ import './card.styles.scss';
 
 function Card({ card: { imageUrl, id, title } }) {
     return (
-        <div className="card" style={{ backgroundImage: `url(${imageUrl})` }} key={id}>
+        <div id="card-contents" style={{ backgroundImage: `url(${imageUrl})` }}  key={id}>
             <div className="title-box">
                 {title}
                 <span>Shop Now</span>
