@@ -1,0 +1,32 @@
+.card-container {
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30%;
+    height: 50%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-box {
+    background-color: rgba(255, 255, 255, 0.917);
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid ;
+}

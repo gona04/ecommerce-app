@@ -1,5 +1,9 @@
+import HomePage from "./pages/home/home.component";
+
+import "./App.scss";
+
 function App() {
-     const categoriesApp = [
+  const categoriesApp = [
     {
       id: 1,
       title: "Hats",
@@ -26,9 +30,9 @@ function App() {
       imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
-return (
-  <h1>Hello From App</h1>
-)
+  return (
+    <HomePage categories={categoriesApp}/>
+  );
 }
 
 export default App;

@@ -1,0 +1,22 @@
+.navigator {
+    height: 3rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+    width:100vw;
+}
+
+.logo {
+    margin-left: 2rem;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 20vw;
+}
+
+li {
+    list-style-type: none;
+}
